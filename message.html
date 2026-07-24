@@ -314,13 +314,29 @@ SAKURA YUI
 
 
 
-
 <div class="input-area">
 
 
 <input 
 id="text"
 placeholder="メッセージを入力してください">
+
+
+<input 
+type="file"
+id="imageInput"
+accept="image/*"
+style="display:none"
+onchange="sendImage()">
+
+
+
+<button onclick="document.getElementById('imageInput').click()">
+
+📷
+
+</button>
+
 
 
 <button onclick="send()">
@@ -357,6 +373,72 @@ placeholder="メッセージを入力してください">
 
 
 function send(){
+  function sendImage(){
+
+
+let file =
+document.getElementById("imageInput").files[0];
+
+
+if(!file){
+return;
+}
+
+
+let reader =
+new FileReader();
+
+
+
+reader.onload=function(e){
+
+
+let box =
+document.getElementById("messages");
+
+
+
+let div =
+document.createElement("div");
+
+
+div.className="msg right";
+
+
+
+let img =
+document.createElement("img");
+
+
+img.src=e.target.result;
+
+
+img.style.width="200px";
+
+img.style.borderRadius="15px";
+
+
+
+div.appendChild(img);
+
+
+
+box.appendChild(div);
+
+
+
+box.scrollTop =
+box.scrollHeight;
+
+
+};
+
+
+
+reader.readAsDataURL(file);
+
+
+}
 
 
 let text =
