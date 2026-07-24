@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>桜結 - メッセージ</title>
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+
+body{
+
+font-family:
+"Noto Sans JP",
+sans-serif;
+
+background:#fff5f8;
+
+min-height:100vh;
+
+color:#333;
+
+}
+
+
+/* header */
+
+.header{
+
+text-align:center;
+
+padding:30px;
+
+}
+
+
+.logo{
+
+font-size:36px;
+
+font-weight:bold;
+
+color:#e85d91;
+
+}
+
+
+.sub{
+
+letter-spacing:5px;
+
+color:#d88aa8;
+
+}
+
+
+
+/* chat box */
+
+
+.chat{
+
+width:420px;
+
+max-width:90%;
+
+height:600px;
+
+margin:auto;
+
+background:white;
+
+border-radius:30px;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.08);
+
+display:flex;
+
+flex-direction:column;
+
+overflow:hidden;
+
+}
+
+
+
+/* user */
+
+
+.user{
+
+padding:20px;
+
+text-align:center;
+
+border-bottom:1px solid #eee;
+
+}
+
+
+.user h2{
+
+color:#e85d91;
+
+}
+
+
+
+/* messages */
+
+
+.messages{
+
+flex:1;
+
+padding:20px;
+
+overflow-y:auto;
+
+}
+
+
+
+.msg{
+
+max-width:75%;
+
+padding:12px 18px;
+
+border-radius:20px;
+
+margin-bottom:15px;
+
+line-height:1.5;
+
+}
+
+
+
+.left{
+
+background:#f5f5f5;
+
+}
+
+
+.right{
+
+background:#e85d91;
+
+color:white;
+
+margin-left:auto;
+
+}
+
+
+
+/* input */
+
+
+.input-area{
+
+display:flex;
+
+padding:15px;
+
+border-top:1px solid #eee;
+
+}
+
+
+.input-area input{
+
+flex:1;
+
+padding:12px;
+
+border-radius:25px;
+
+border:1px solid #ddd;
+
+outline:none;
+
+}
+
+
+
+.input-area button{
+
+margin-left:10px;
+
+background:#e85d91;
+
+color:white;
+
+border:none;
+
+padding:12px 20px;
+
+border-radius:25px;
+
+cursor:pointer;
+
+}
+
+
+
+/* back */
+
+
+.back{
+
+text-align:center;
+
+margin-top:25px;
+
+}
+
+
+.back a{
+
+color:#999;
+
+text-decoration:none;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<div class="header">
+
+<div class="logo">
+🌸 桜結
+</div>
+
+<div class="sub">
+SAKURA YUI
+</div>
+
+</div>
+
+
+
+
+<div class="chat">
+
+
+<div class="user">
+
+<h2>
+佐藤 美穂
+</h2>
+
+28歳 ・ 東京都
+
+</div>
+
+
+
+
+<div class="messages" id="messages">
+
+
+<div class="msg left">
+
+こんにちは😊
+
+はじめまして。
+
+よろしくお願いします。
+
+</div>
+
+
+
+<div class="msg right">
+
+こんにちは🌸
+
+こちらこそよろしくお願いします。
+
+</div>
+
+
+<div class="msg left">
+
+休日は何をして過ごしていますか？
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="input-area">
+
+
+<input 
+id="text"
+placeholder="メッセージを入力してください">
+
+
+<button onclick="send()">
+
+送信
+
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="back">
+
+<a href="profile.html">
+
+← プロフィールへ戻る
+
+</a>
+
+</div>
+
+
+
+
+<script>
+
+
+function send(){
+
+
+let text =
+document.getElementById("text").value;
+
+
+if(text==""){
+return;
+}
+
+
+
+let box =
+document.getElementById("messages");
+
+
+
+let div =
+document.createElement("div");
+
+
+div.className="msg right";
+
+
+div.innerHTML=text;
+
+
+box.appendChild(div);
+
+
+
+document.getElementById("text").value="";
+
+
+box.scrollTop =
+box.scrollHeight;
+
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>
